@@ -51,7 +51,7 @@ static NSString *const ParseClientKeyString = nil;
     [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     
     // Initializes a LYRClient object
-    NSUUID *appID = [[NSUUID alloc] initWithUUIDString:LayerAppIDString];
+    NSURL *appID = [NSURL URLWithString:LayerAppIDString];    
     LYRClient *layerClient = [LYRClient clientWithAppID:appID];
     layerClient.autodownloadMIMETypes = [NSSet setWithObjects:ATLMIMETypeImagePNG, ATLMIMETypeImageJPEG, ATLMIMETypeImageJPEGPreview, ATLMIMETypeImageGIF, ATLMIMETypeImageGIFPreview, ATLMIMETypeLocation, nil];
     
