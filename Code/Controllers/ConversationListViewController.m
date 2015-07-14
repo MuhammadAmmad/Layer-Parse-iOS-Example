@@ -140,11 +140,20 @@
 // The following method handles presenting the correct `ConversationViewController`, regardeless of the current state of the navigation stack.
 - (void)presentControllerWithConversation:(LYRConversation *)conversation
 {
-    ConversationViewController *controller = [ConversationViewController conversationViewControllerWithLayerClient:self.layerClient];
-    controller.conversation = conversation;
-    controller.shouldDisplayAvatarItemForOneOtherParticipant = YES;
-    controller.displaysAddressBar = YES;
-    [self.navigationController pushViewController:controller animated:YES];
+    BOOL shouldShowAddressBar = (conversation.participants.count > 2 || !conversation.participants.count);
+    ConversationViewController *conversationViewController = [ConversationViewController conversationViewControllerWithLayerClient:self.layerClient];
+    conversationViewController.displaysAddressBar = shouldShowAddressBar;
+    conversationViewController.conversation = conversation;
+    
+    if (self.navigationController.topViewController == self) {
+        [self.navigationController pushViewController:conversationViewController animated:YES];
+    } else {
+        NSMutableArray *viewControllers = [self.navigationController.viewControllers mutableCopy];
+        NSUInteger listViewControllerIndex = [self.navigationController.viewControllers indexOfObject:self];
+        NSRange replacementRange = NSMakeRange(listViewControllerIndex + 1, viewControllers.count - listViewControllerIndex - 1);
+        [viewControllers replaceObjectsInRange:replacementRange withObjectsFromArray:@[conversationViewController]];
+        [self.navigationController setViewControllers:viewControllers animated:YES];
+    }
 }
 
 #pragma mark - Actions
@@ -153,7 +162,6 @@
 {
     ConversationViewController *controller = [ConversationViewController conversationViewControllerWithLayerClient:self.layerClient];
     controller.displaysAddressBar = YES;
-    controller.shouldDisplayAvatarItemForOneOtherParticipant = YES;
     [self.navigationController pushViewController:controller animated:YES];
 }
 

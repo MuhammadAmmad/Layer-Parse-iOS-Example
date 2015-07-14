@@ -52,6 +52,7 @@
     return [[NSString stringWithFormat:@"%@%@", [self.firstName substringToIndex:1], [self.lastName substringToIndex:1]] uppercaseString];
 }
 
+// Instead of a UIImage for Avatar Image you can optionally specify an image from a URL here
 - (NSURL *)avatarImageURL
 {
     return nil;

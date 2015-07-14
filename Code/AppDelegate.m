@@ -75,7 +75,7 @@ static NSString *const ParseClientKeyString = nil;
     return YES;
 }
 
-#pragma mark - Push Notification Methods
+#pragma mark - Push Notification Registration
 
 - (void)registerApplicationForPushNotifications:(UIApplication *)application
 {

@@ -40,6 +40,7 @@
     self.dataSource = self;
     self.delegate = self;
     self.addressBarController.delegate = self;
+    self.shouldDisplayAvatarItemForOneOtherParticipant = YES;
     
     // Setup the dateformatter used by the dataSource.
     self.dateFormatter = [[NSDateFormatter alloc] init];
