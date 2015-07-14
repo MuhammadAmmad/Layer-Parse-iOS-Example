@@ -125,6 +125,8 @@
     return mergedStatuses;
 }
 
+/*
+// Uncomment this section if you want to customize the push message.
 - (NSOrderedSet *)conversationViewController:(ATLConversationViewController *)viewController messagesForMediaAttachments:(NSArray *)mediaAttachments
 {
     // Configure the push message
@@ -143,6 +145,7 @@
     }
     return messages;
 }
+*/
 
 #pragma mark - ATLAddressBarViewController Delegate methods methods
 

@@ -20,6 +20,7 @@
 
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
+#import <LayerKit/LayerKit.h>
 
 @interface AppDelegate () <UIApplicationDelegate>
 
@@ -117,8 +118,7 @@ static NSString *const ParseClientKeyString = nil;
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     if (application.applicationState == UIApplicationStateInactive || application.applicationState == UIApplicationStateBackground) {
-        if ([userInfo objectForKey:@"layer"] != nil)
-        {
+        if ([userInfo objectForKey:@"layer"] != nil) {
             BOOL userTappedRemoteNotification = application.applicationState == UIApplicationStateInactive;
             __block LYRConversation *conversation = [self conversationFromRemoteNotification:userInfo];
             if (userTappedRemoteNotification && conversation) {
@@ -152,7 +152,6 @@ static NSString *const ParseClientKeyString = nil;
             [PFPush handlePush:userInfo];
             completionHandler(UIBackgroundFetchResultNewData);
         }
-        
     }
 }
 
@@ -165,7 +164,7 @@ static NSString *const ParseClientKeyString = nil;
 - (void)navigateToViewForConversation:(LYRConversation *)conversation
 {
     if(self.controller.conversationListViewController != nil ) {
-        [self.controller.conversationListViewController selectConversation:conversation];
+        [self.controller.conversationListViewController presentConversation:conversation];
     }
 }
 

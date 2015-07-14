@@ -25,10 +25,10 @@
 @interface ConversationListViewController : ATLConversationListViewController
 
 /**
- @abstract Programmatically simulates the selection of an `LYRConversation` object in the conversations table view.
+ @abstract Programmatically simulates the selection of an `LYRConversation` object in the ATLConversationListViewController.
  @discussion This method is used when opening the application in response to a push notification. When invoked, it
  will display the appropriate conversation on screen.
  */
-- (void)selectConversation:(LYRConversation *)conversation;
+- (void)presentConversation:(LYRConversation *)conversation;
 
 @end

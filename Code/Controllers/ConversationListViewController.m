@@ -128,7 +128,7 @@
 
 #pragma mark - Conversation Selection From Push Notification
 
-- (void)selectConversation:(LYRConversation *)conversation
+- (void)presentConversation:(LYRConversation *)conversation
 {
     if (conversation) {
         [self presentControllerWithConversation:conversation];
