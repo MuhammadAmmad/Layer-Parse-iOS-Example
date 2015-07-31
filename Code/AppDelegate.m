@@ -21,6 +21,7 @@
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import <LayerKit/LayerKit.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface AppDelegate () <UIApplicationDelegate>
 
@@ -57,7 +58,7 @@ static NSString *const ParseClientKeyString = nil;
     [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     
     // Initializes a LYRClient object
-    NSUUID *appID = [[NSUUID alloc] initWithUUIDString:LayerAppIDString];
+    NSURL *appID = [NSURL URLWithString:LayerAppIDString];
     self.layerClient = [LYRClient clientWithAppID:appID];
     self.layerClient.autodownloadMIMETypes = [NSSet setWithObjects:ATLMIMETypeImagePNG, ATLMIMETypeImageJPEG, ATLMIMETypeImageJPEGPreview, ATLMIMETypeImageGIF, ATLMIMETypeImageGIFPreview, ATLMIMETypeLocation, nil];
     
@@ -119,11 +120,10 @@ static NSString *const ParseClientKeyString = nil;
 {
     if (application.applicationState == UIApplicationStateInactive || application.applicationState == UIApplicationStateBackground) {
         if ([userInfo objectForKey:@"layer"] != nil) {
-            BOOL userTappedRemoteNotification = application.applicationState == UIApplicationStateInactive;
             __block LYRConversation *conversation = [self conversationFromRemoteNotification:userInfo];
-            if (userTappedRemoteNotification && conversation) {
+            if (conversation) {
                 [self navigateToViewForConversation:conversation];
-            } else if (userTappedRemoteNotification) {
+            } else {
                 [SVProgressHUD showWithStatus:@"Loading Conversation" maskType:SVProgressHUDMaskTypeBlack];
             }
             
@@ -135,7 +135,7 @@ static NSString *const ParseClientKeyString = nil;
                 }
                 
                 // Try navigating once the synchronization completed
-                if (userTappedRemoteNotification && !conversation) {
+                if (!conversation) {
                     [SVProgressHUD dismiss];
                     conversation = [self conversationFromRemoteNotification:userInfo];
                     [self navigateToViewForConversation:conversation];
@@ -148,7 +148,6 @@ static NSString *const ParseClientKeyString = nil;
         }
         else
         {
-            NSLog(@"userInfo: %@",userInfo);
             [PFPush handlePush:userInfo];
             completionHandler(UIBackgroundFetchResultNewData);
         }

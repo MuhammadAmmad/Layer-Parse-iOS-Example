@@ -19,7 +19,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <SVProgressHUD/SVProgressHUD.h>
 #import "ViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

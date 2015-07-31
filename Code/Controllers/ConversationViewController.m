@@ -40,7 +40,8 @@
     self.dataSource = self;
     self.delegate = self;
     self.addressBarController.delegate = self;
-    self.shouldDisplayAvatarItemForOneOtherParticipant = YES;
+    // Uncomment the following line if you want to show avatars in 1:1 conversations
+    //self.shouldDisplayAvatarItemForOneOtherParticipant = YES;
     
     // Setup the dateformatter used by the dataSource.
     self.dateFormatter = [[NSDateFormatter alloc] init];
@@ -127,6 +128,8 @@
 }
 
 /*
+// messagesForMediaAttachments gets called right before the message is sent.  This is where you can customize the
+ LYRMessages being sent including their push messages. 
 // Uncomment this section if you want to customize the push message.
 - (NSOrderedSet *)conversationViewController:(ATLConversationViewController *)viewController messagesForMediaAttachments:(NSArray *)mediaAttachments
 {
