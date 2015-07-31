@@ -119,12 +119,13 @@ static NSString *const ParseClientKeyString = nil;
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     if (application.applicationState == UIApplicationStateInactive || application.applicationState == UIApplicationStateBackground) {
+        [SVProgressHUD show];
         if ([userInfo objectForKey:@"layer"] != nil) {
             __block LYRConversation *conversation = [self conversationFromRemoteNotification:userInfo];
             if (conversation) {
                 [self navigateToViewForConversation:conversation];
             } else {
-                [SVProgressHUD showWithStatus:@"Loading Conversation" maskType:SVProgressHUDMaskTypeBlack];
+                //[SVProgressHUD showWithStatus:@"Loading Conversation" maskType:SVProgressHUDMaskTypeBlack];
             }
             
             BOOL success = [self.layerClient synchronizeWithRemoteNotification:userInfo completion:^(NSArray *changes, NSError *error) {
@@ -136,7 +137,6 @@ static NSString *const ParseClientKeyString = nil;
                 
                 // Try navigating once the synchronization completed
                 if (!conversation) {
-                    [SVProgressHUD dismiss];
                     conversation = [self conversationFromRemoteNotification:userInfo];
                     [self navigateToViewForConversation:conversation];
                 }
@@ -163,7 +163,12 @@ static NSString *const ParseClientKeyString = nil;
 - (void)navigateToViewForConversation:(LYRConversation *)conversation
 {
     if(self.controller.conversationListViewController != nil ) {
-        [self.controller.conversationListViewController presentConversation:conversation];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+            [self.controller.conversationListViewController presentConversation:conversation];
+        });
+    } else {
+            [SVProgressHUD dismiss];        
     }
 }
 
