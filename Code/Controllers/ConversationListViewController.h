@@ -19,7 +19,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Atlas/Atlas.h>
-#import <ParseUI.h>
+#import "ParseUI.h"
 #import "PFUser+ATLParticipant.h"
 #import "ViewController.h"
 

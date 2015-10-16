@@ -23,8 +23,8 @@
 		25713D6F1AC6071600FC5D38 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25713D651AC6071600FC5D38 /* ViewController.m */; };
 		25713D701AC6071600FC5D38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25713D661AC6071600FC5D38 /* main.m */; };
 		25713D711AC6071600FC5D38 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25713D691AC6071600FC5D38 /* UserManager.m */; };
+		3765FD8FF0AC88479036E692 /* Pods_Layer_Parse_iOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6A86BEA4966B43722621EC /* Pods_Layer_Parse_iOS_Example.framework */; };
 		5AD49C051AC399DD00B1B0C8 /* LayerParseSampleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD49C041AC399DD00B1B0C8 /* LayerParseSampleAppTests.m */; };
-		DE21CBC9179B78114E756630 /* libPods-Layer-Parse-iOS-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB020A6C940784334B46A30 /* libPods-Layer-Parse-iOS-Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0BB020A6C940784334B46A30 /* libPods-Layer-Parse-iOS-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Layer-Parse-iOS-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25713D3C1AC605FC00FC5D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		25713D3E1AC605FC00FC5D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25713D3F1AC605FC00FC5D38 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		5AD49C041AC399DD00B1B0C8 /* LayerParseSampleAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LayerParseSampleAppTests.m; sourceTree = "<group>"; };
 		5D2577FDB282E79E4AA3E979 /* Pods-Layer-Parse-iOS-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Layer-Parse-iOS-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Layer-Parse-iOS-Example/Pods-Layer-Parse-iOS-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8C01F0B0A4201AA564136B47 /* libPods-LayerParseSampleApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LayerParseSampleApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D6A86BEA4966B43722621EC /* Pods_Layer_Parse_iOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Layer_Parse_iOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B229D8D6557B45378ED2CD58 /* Pods-LayerParseSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LayerParseSampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LayerParseSampleApp/Pods-LayerParseSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B6B8E20DF9188E775F70E276 /* Pods-LayerParseSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LayerParseSampleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-LayerParseSampleApp/Pods-LayerParseSampleApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE21CBC9179B78114E756630 /* libPods-Layer-Parse-iOS-Example.a in Frameworks */,
+				3765FD8FF0AC88479036E692 /* Pods_Layer_Parse_iOS_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				8C01F0B0A4201AA564136B47 /* libPods-LayerParseSampleApp.a */,
-				0BB020A6C940784334B46A30 /* libPods-Layer-Parse-iOS-Example.a */,
+				9D6A86BEA4966B43722621EC /* Pods_Layer_Parse_iOS_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -225,6 +225,7 @@
 				5AD49BE21AC399DD00B1B0C8 /* Frameworks */,
 				5AD49BE31AC399DD00B1B0C8 /* Resources */,
 				924B094F20040F8949E42D26 /* Copy Pods Resources */,
+				C61CEFD654F4934AE645CE68 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -259,7 +260,7 @@
 		5AD49BDD1AC399DD00B1B0C8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Layer;
 				TargetAttributes = {
 					5AD49BE41AC399DD00B1B0C8 = {
@@ -346,6 +347,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Layer-Parse-iOS-Example/Pods-Layer-Parse-iOS-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C61CEFD654F4934AE645CE68 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Layer-Parse-iOS-Example/Pods-Layer-Parse-iOS-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -422,6 +438,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -485,8 +502,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.layer.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -498,8 +516,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.layer.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -518,6 +537,7 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ATLP.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Layer-Parse-iOS-Example.app/Layer-Parse-iOS-Example";
 			};
@@ -533,6 +553,7 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ATLP.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Layer-Parse-iOS-Example.app/Layer-Parse-iOS-Example";
 			};

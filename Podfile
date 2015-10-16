@@ -1,7 +1,8 @@
-platform :ios, '7.0'
+platform :ios, '8.0'
+
+use_frameworks!
 
 target 'Layer-Parse-iOS-Example' do
-  pod 'LayerKit'
   pod 'Atlas'
   pod 'Parse'
   pod 'ParseUI'
