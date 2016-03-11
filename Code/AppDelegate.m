@@ -26,6 +26,7 @@
 @implementation AppDelegate
 
 #pragma mark TODO: Before first launch, update LayerAppIDString, ParseAppIDString or ParseClientKeyString values
+#warning TODO: If LayerAppIDString, ParseAppIDString, or ParseClientKeyString are nil, this app won't work correctly.
 static NSString *const LayerAppIDString = nil;
 static NSString *const ParseAppIDString = nil;
 static NSString *const ParseClientKeyString = nil;
