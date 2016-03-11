@@ -26,17 +26,15 @@
 @implementation AppDelegate
 
 #pragma mark TODO: Before first launch, update LayerAppIDString, ParseAppIDString or ParseClientKeyString values
-#warning "TODO:If LayerAppIDString, ParseAppIDString or ParseClientKeyString are nil, this app will crash"
 static NSString *const LayerAppIDString = nil;
 static NSString *const ParseAppIDString = nil;
 static NSString *const ParseClientKeyString = nil;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
     if (LayerAppIDString.length == 0 || ParseAppIDString.length == 0 || ParseClientKeyString.length == 0) {
-        [NSException raise:@"Invalid Configuration" format:@"You have not configured your Layer and/or Parse keys. Please check your configuration in AppDelegate.m and try again."];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Invalid Configuration" message:@"You have not configured your Layer and/or Parse keys. Please check your configuration and try again." delegate:nil cancelButtonTitle:@"Rats!" otherButtonTitles:nil];
+        [alertView show];
         return YES;
     }
     // Enable Parse local data store for user persistence
@@ -54,12 +52,11 @@ static NSString *const ParseClientKeyString = nil;
     LYRClient *layerClient = [LYRClient clientWithAppID:appID];
     layerClient.autodownloadMIMETypes = [NSSet setWithObjects:ATLMIMETypeImagePNG, ATLMIMETypeImageJPEG, ATLMIMETypeImageJPEGPreview, ATLMIMETypeImageGIF, ATLMIMETypeImageGIFPreview, ATLMIMETypeLocation, nil];
     
-    // Show View Controller
-    ViewController *controller = [ViewController new];
-    controller.layerClient = layerClient;
-    
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:controller];
-    self.window.backgroundColor = [UIColor whiteColor];
+    // View controller is configured in Main.storyboard
+    // Hook it up with the Layer client
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    [(ViewController *)navigationController.topViewController setLayerClient:layerClient];
+
     [self.window makeKeyAndVisible];
     
     return YES;
